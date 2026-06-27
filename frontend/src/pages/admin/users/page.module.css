@@ -1,0 +1,102 @@
+/* Container principal da página de usuários */
+.usersContainer {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Cabeçalho com título e contagem de usuários */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.header h1 {
+    margin: 0;
+    color: #1e3a2f;
+    font-size: 2rem;
+}
+
+.header p {
+    color: #555;
+    font-size: 1.1rem;
+}
+
+/* Container da tabela com overflow para responsividade */
+.tableContainer {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    overflow: hidden;
+}
+
+/* Tabela de usuários */
+.usersTable {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.usersTable th,
+.usersTable td {
+    padding: 16px 20px;
+    text-align: left;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+/* Cabeçalho em caixa alta com fundo cinza claro */
+.usersTable th {
+    background-color: #f8f9fa;
+    color: #555;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+}
+
+/* Hover suave nas linhas */
+.usersTable tr:hover {
+    background-color: #f9fff9;
+}
+
+.usersTable td {
+    font-size: 1.02rem;
+}
+
+/* Botão de excluir usuário — vermelho */
+.deleteBtn {
+    padding: 8px 16px;
+    background-color: #d32f2f;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.95rem;
+    transition: all 0.2s;
+}
+
+.deleteBtn:hover {
+    background-color: #b71c1c;
+    transform: translateY(-1px);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .usersTable th,
+    .usersTable td {
+        padding: 12px 10px;
+        font-size: 0.95rem;
+    }
+    
+    /* Habilita scroll horizontal na tabela em telas pequenas */
+    .tableContainer {
+        overflow-x: auto;
+    }
+}

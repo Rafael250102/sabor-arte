@@ -1,0 +1,58 @@
+/* Reset global — remove margens, paddings e decorações padrão do navegador */
+* {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    font-family: Inter;
+}
+
+/* Container raiz da aplicação React */
+#root {
+    font-size: x-large;
+    background-color: #f8f9fa;
+    color: #2E7D32;
+    min-height: 100vh; /* Garante que a página sempre ocupe toda a altura da tela */
+}
+
+/* Área de conteúdo principal — centralizada com largura máxima */
+main {
+    width: 100%;
+    max-width: 100%;
+    padding-top: 96px;
+}
+
+/* Estilo global de botões — aplicado a todos os <button> da aplicação */
+button {
+    display: flex;
+    gap: 0.5em;
+    align-items: center;
+    justify-content: center;
+    width: fit-content;
+    background-color: #2E7D32;
+    color: white;
+    border: none;
+    border-radius: 0.5em;
+    padding: 1em;
+    cursor: pointer;
+    font-size: medium;
+}
+
+/* Estilo global de parágrafos com gap para espaçamento entre elementos inline */
+p {
+    display: flex;
+    gap: 0.2em;
+}
+
+/* === RESET GLOBAL - Remove margens laterais === */
+html, body, #root {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* Remove qualquer padding/margin indesejado */
+* {
+    box-sizing: border-box;
+}

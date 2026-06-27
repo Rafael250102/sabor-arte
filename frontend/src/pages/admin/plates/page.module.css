@@ -1,0 +1,141 @@
+/* Container principal da página de pratos */
+.platesContainer {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 20px 0;
+}
+
+/* Cabeçalho com título e botão de novo prato */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.header h1 {
+    margin: 0;
+    color: #1e3a2f;
+    font-size: 2rem;
+}
+
+/* Botão de cadastrar novo prato */
+.addButton {
+    background-color: #2E7D32;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-size: 1.05rem;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.addButton:hover {
+    background-color: #1e5c24;
+    transform: translateY(-2px);
+}
+
+/* Container da tabela com scroll horizontal em telas pequenas */
+.tableContainer {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    overflow-x: auto;
+}
+
+/* Tabela de pratos */
+.platesTable {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 950px;
+}
+
+.platesTable th,
+.platesTable td {
+    padding: 16px 12px;
+    text-align: left;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+/* Cabeçalho com fundo cinza claro */
+.platesTable th {
+    background-color: #f8f9fa;
+    color: #555;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+/* Hover suave nas linhas */
+.platesTable tr:hover {
+    background-color: #f9fff9;
+}
+
+/* Miniatura da imagem do prato */
+.plateImg {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 1px solid #eee;
+}
+
+/* Badge de disponibilidade */
+.available   { color: #2e7d32; font-weight: bold; }
+.unavailable { color: #c62828; font-weight: bold; }
+
+/* Botões de ação da tabela */
+.editBtn, .deleteBtn {
+    padding: 8px 14px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.95rem;
+    margin-right: 8px;
+}
+
+/* Botão de editar — azul */
+.editBtn {
+    background-color: #1976d2;
+    color: white;
+}
+
+/* Botão de excluir — vermelho */
+.deleteBtn {
+    background-color: #d32f2f;
+    color: white;
+}
+
+.editBtn:hover  { background-color: #1565c0; }
+.deleteBtn:hover { background-color: #b71c1c; }
+
+/* Responsividade */
+@media (max-width: 900px) {
+    .header h1 {
+        font-size: 1.7rem;
+    }
+    
+    .platesTable th,
+    .platesTable td {
+        padding: 12px 8px;
+        font-size: 0.93rem;
+    }
+
+    .plateImg {
+        width: 48px;
+        height: 48px;
+    }
+}
+
+@media (max-width: 600px) {
+    .header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .platesTable {
+        min-width: 750px;
+    }
+}

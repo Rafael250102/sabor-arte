@@ -1,0 +1,22 @@
+# Usa uma imagem leve do Node.js versão 18 baseada em Alpine (mais otimizada)
+FROM node:18-alpine
+
+# Define o diretório de trabalho dentro do container
+WORKDIR /usr/src/app
+
+# Copia os arquivos package.json e package-lock.json (ou yarn.lock) para o container
+# Isso permite que o cache de camadas do Docker seja usado (melhora performance)
+COPY package*json ./
+
+# Instala as dependências do projeto
+RUN npm install
+
+# Copia todo o código fonte da aplicação para o container
+COPY . .
+
+# Comando que será executado quando o container iniciar
+CMD ["npm", "start"]
+
+# Informa ao Docker que a aplicação escuta na porta 3000
+# (não publica a porta automaticamente, só documenta)
+EXPOSE 3000

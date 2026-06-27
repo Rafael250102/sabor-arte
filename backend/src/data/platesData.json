@@ -1,0 +1,83 @@
+[
+    {
+        "name":"Caldo de Lula com Ervilhas",
+        "price":10.99,
+        "available":false,
+        "description":"Lula fresca cozida lentamente em um caldo com ervilhas frescas e tomates, revelando uma explosão de sabores que vai fazer você voltar para mais uma garfada!",
+        "ingredients":["Lula fresca","Ervilhas frescas","Tomates"],
+        "imgUrl":"/imgs/plates/squidStewwithPeas.png",
+        "category":"Primeiro"
+    },
+    {
+        "name":"Tortellini no Caldo de Galinha",
+        "price": 8.99,
+        "available":true,
+        "description":"Nossos tortellini caseiros, recheados com carne, flutuam em um caldo de galinha quente, trazendo todo o conforto e o sabor da verdadeira cozinha italiana!",
+        "ingredients":["Tortellini caseiro","Caldo de galinha"],
+        "imgUrl":"/imgs/plates/tortellini.png",
+        "category":"Primeiro"
+    },
+    {
+        "name":"Salada de Camarão com Legumes",
+        "price":10.99,
+        "available":true,
+        "description":"Uma salada fresca com camarão cozido, legumes da estação e um molho secreto que vai fazer seu almoço ou jantar brilhar!",
+        "ingredients":["Camarão cozido","Legumes da estação","Molho para salada"],
+        "imgUrl":"/imgs/plates/shrimpandVegetableSalad.png",
+        "category":"Acompanhamento"
+    },
+    {
+        "name":"Salada de Frutos do Mar",
+        "price":7.99,
+        "available":true,
+        "description":"Uma salada fresca de frutos do mar variados, temperada com o ouro líquido do azeite de oliva extra virgem. Uma viagem de sabores que você nunca vai esquecer!",
+        "ingredients":["Frutos do mar variados","Azeite de oliva extra virgem"],
+        "imgUrl":"/imgs/plates/seafoodSalad.png",
+        "category":"Entrada"
+    },
+    {
+        "name":"Lasagna à Bolonhesa",
+        "price":11.99,
+        "available":true,
+        "description":"Camadas de massa de ovo intercaladas com rico molho de carne moída e um cremoso molho béchamel. A Lasagna Bolonhesa vai fazer você se sentir em casa!",
+        "ingredients":["Molho béchamel","Molho de carne moída","Massa de ovo","Manjericão"],
+        "imgUrl":"/imgs/plates/lasagna.png",
+        "category":"Primeiro"
+    },
+    {
+        "name":"Pão Integral",
+        "price":5.99,
+        "available":true,
+        "description":"Pão integral recém-assado, crocante por fora e macio por dentro, perfeito para acompanhar todos os pratos!",
+        "ingredients":["Farinha integral","Água","Fermento","Sal"],
+        "imgUrl":"/imgs/plates/bread.png",
+        "category":"Outro"
+    },
+    {
+        "available":true,
+        "category":"Segundo",
+        "description":"Almondegas macias feitas de carne moída, mergulhadas em um molho de tomate com manjericão. Depois de cada garfada você vai dizer 'Mamma mia!'",
+        "imgUrl":"/imgs/plates/meatBalls.png",
+        "ingredients":["Carne moída","Molho de tomate","Manjericão","Manteiga"],
+        "name":"Almondegas ao Molho de Tomate",
+        "price":11.99
+    },
+    {
+        "price":8.99,
+        "description":"Espadarte defumado com legumes salteados e sementes de gergelim, uma combinação deliciosa de sabores!",
+        "category":"Entrada",
+        "available":true,
+        "name":"Espadarte Defumado com Legumes Salteados",
+        "ingredients":["Espadarte defumado","Legumes salteados","Sementes de gergelim"],
+        "imgUrl":"/imgs/plates/swordfish.png"
+    },
+    {
+        "name":"Salmão Grelhado",
+        "price":16.99,
+        "available":true,
+        "description":"Um delicioso filé de salmão fresco grelhado, acompanhado de legumes mistos que vão deixar seu paladar feliz!",
+        "ingredients":["Filé de salmão","Legumes mistos"],
+        "imgUrl":"/imgs/plates/grilledSalmon.png",
+        "category":"Segundo"
+    }
+]

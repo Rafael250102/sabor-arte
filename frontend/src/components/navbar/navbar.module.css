@@ -1,0 +1,103 @@
+/* Barra de navegação principal */
+.navbarContainer {
+    position: fixed;
+    display: flex;
+    z-index: 1100;
+    align-items: center;
+    background-color: #2E7D32;
+    height: 96px;
+    padding: 0.2em;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    width: 100%;
+}
+
+.logo {
+    width: 5em;
+}
+
+/* Wrapper dos itens desktop — centralizado com largura máxima */
+.navbarItems {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 1280px;
+    margin: 0 auto;
+}
+
+.navbarLink {
+    color: white;
+    text-decoration: none;
+}
+
+/* Container dos links de navegação desktop */
+.navbarLinksContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5em;
+    padding: 0.5em;
+}
+
+/* ==================== MOBILE ==================== */
+
+/* Oculto por padrão — visível apenas em telas pequenas */
+.mobileNavbarItems {
+    display: none;
+}
+
+/* Ícones do mobile (carrinho + hambúrguer) */
+.mobileNavbarBtns {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.8em;
+    font-size: xx-large;
+    padding: 0.5em;
+}
+
+/* ==================== DRAWER (Sidebar Mobile) ==================== */
+
+/* Painel lateral que desliza da direita no mobile */
+.drawer {
+    width: 260px;
+    height: 100%;
+    background-color: #2E7D32;
+    color: white;
+    padding: 2em 1em;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6em;
+    font-size: large;
+}
+
+/* Links dentro do drawer */
+.drawer a {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px 20px;
+    color: white;
+    text-decoration: none;
+    font-size: 1.3rem;
+    border-radius: 10px;
+    transition: all 0.2s;
+}
+
+.drawer a:hover {
+    background-color: #1e5c24;
+    color: #a3d9b4;
+}
+
+/* Responsividade: em telas pequenas esconde o menu desktop e exibe o mobile */
+@media screen and (max-width: 600px) {
+    .navbarItems {
+        display: none;
+    }
+    .mobileNavbarItems {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+    }
+}

@@ -1,0 +1,129 @@
+/* Página de login admin — centralizada na tela */
+.adminLoginContainer {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f8f9fa;
+}
+
+/* Card branco do formulário de login */
+.loginBox {
+    background: white;
+    padding: 35px 25px;
+    border-radius: 12px;
+    width: 100%;
+    max-width: 380px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+.loginBox h1 {
+    margin-bottom: 10px;
+    color: #2E7D32;
+}
+
+/* Subtítulo de aviso de acesso restrito */
+.subtitle {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 30px;
+    color: #555;
+    font-size: 1.05rem;
+}
+
+/* Mensagem de erro — fundo vermelho claro */
+.error {
+    color: #d32f2f;
+    background-color: #ffebee;
+    padding: 12px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+/* Formulário em coluna centralizada */
+.form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 35px 25px;
+    gap: 12px;
+}
+
+.input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 1rem;
+}
+
+/* Destaque visual no foco do input */
+.input:focus {
+    outline: none;
+    border-color: #2E7D32;
+}
+
+/* Botão de envio do formulário */
+.submitButton {
+    width: 100%;
+    padding: 14px;
+    background: #2E7D32;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.submitButton:hover:not(:disabled) {
+    background: #1e5c24;
+}
+
+/* Estado desabilitado — durante o carregamento do login */
+.submitButton:disabled {
+    background: #999;
+    cursor: not-allowed;
+}
+
+/* Botão de voltar ao site — discreto, sem fundo */
+.backButton {
+    margin: 25px auto 0 auto;
+    color: #666;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    display: block;
+    text-align: center;
+    width: fit-content;
+    padding: 8px 16px;
+    border-radius: 6px;
+}
+
+.backButton:hover {
+    color: #2E7D32;
+    background-color: #f0f0f0;
+}
+
+/* Responsividade para telas pequenas */
+@media (max-width: 600px) {
+    .loginBox {
+        padding: 30px 20px;
+        max-width: 340px;
+    }
+
+    .loginBox h1 {
+        font-size: 1.7rem;
+    }
+
+    .form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+        padding: 30px 20px;
+    }
+}

@@ -1,0 +1,46 @@
+/* Container principal do popup */
+.popupContainer {
+    background-color: #f8f9fa;
+    color: #2E7D32;
+}
+
+/* Imagem do prato no topo do popup */
+.popupContainer img {
+    height: 300px;
+    width: 100%;
+    object-fit: cover;
+}
+
+/* Área de conteúdo textual e ações */
+.popupContent {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+    padding: 1em;
+}
+
+/* Ingredientes em tom secundário para não competir com nome e preço */
+.ingredients {
+    color: #777;
+}
+
+/* Linha com controles de quantidade e botão de adicionar */
+.quantityBtns {
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+}
+
+/* Número da quantidade em destaque */
+.quantity {
+    font-size: x-large;
+}
+
+/* Fallback exibido quando o prato não tem imagem cadastrada */
+.noImage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 2em;
+    font-size: larger;
+}

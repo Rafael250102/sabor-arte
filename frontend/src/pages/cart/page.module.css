@@ -1,0 +1,120 @@
+/* Tela exibida quando o carrinho está vazio */
+.cartEmpty {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 70vh;
+    text-align: center;
+    padding: 2rem 1rem;
+    gap: 2rem;
+}
+
+/* Link interno do botão de carrinho vazio — herda cor do botão pai */
+.cartEmptyBtn {
+    background-color: #2E7D32;
+    color: white;
+    padding: 14px 32px;
+    border-radius: 30px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.cartEmptyBtn:hover {
+    background-color: #1e5624;
+    transform: translateY(-3px);
+}
+
+/* Card de item do carrinho — imagem à esquerda, conteúdo à direita */
+.itemContainer {
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 1em;
+}
+
+/* Imagem do prato no carrinho — tamanho fixo com proporção preservada */
+.itemContainer img {
+    width: 200px;
+    height: 100%;
+    border-radius: 1em;
+    object-fit: cover;
+}
+
+/* Lista vertical de itens do carrinho */
+.itemsListContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+/* Container principal da página do carrinho */
+.pageContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2em;
+    padding-bottom: 100px; /* espaço para botão fixo */
+}
+
+/* Conteúdo textual e controles de cada item */
+.itemContent {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+    width: 100%;
+}
+
+/* Linha com label e controles de quantidade */
+.portionContainer {
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+}
+
+/* Botões de incremento/decremento de quantidade */
+.portionBtns {
+    display: flex;
+    gap: 0.2em;
+}
+
+/* Botão de confirmar pedido — fixo na parte inferior da tela */
+.confirmBtn {
+    position: fixed;
+    font-size: x-large;
+    bottom: 2em;
+    background-color: #25662a;
+}
+
+/* ==================== RESPONSIVIDADE ==================== */
+@media screen and (max-width: 768px) {
+    .cartEmpty {
+        min-height: 65vh;
+        padding: 1.5rem 1rem;
+        gap: 1.5rem;
+    }
+
+    .itemContainer {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 1rem;
+    }
+
+    .itemContainer img {
+        width: 100%;
+        height: 180px;
+    }
+
+    .pageContainer {
+        padding-bottom: 90px;
+    }
+
+    .confirmBtn {
+        bottom: 1.5em;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 90%;
+        max-width: 380px;
+    }
+}

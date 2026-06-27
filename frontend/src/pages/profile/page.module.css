@@ -1,0 +1,175 @@
+/* Container principal da página de perfil */
+.ordersContainer {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 20px;
+    min-height: 100vh;
+    background-color: #f8f9fa;
+}
+
+/* Cabeçalho com nome do usuário e botão de logout */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+    gap: 15px;
+    padding-bottom: 20px;
+    border-bottom: 2px solid #eee;
+}
+
+.header h1 {
+    margin: 0;
+    color: #1e3a2f;
+    font-size: 2.2rem;
+    font-weight: 700;
+}
+
+/* Email do usuário em tom secundário */
+.email {
+    margin: 5px 0 0 0;
+    color: #555;
+    font-size: 1.1rem;
+}
+
+/* Botão de logout */
+.logoutBtn {
+    padding: 10px 20px;
+    background-color: #2E7D32;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: 500;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s;
+}
+
+.logoutBtn:hover {
+    background-color: #1e5c24;
+}
+
+/* Linha de filtros de status */
+.filters {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 25px;
+}
+
+/* Botão de filtro — borda verde, fundo transparente por padrão */
+.filters button {
+    padding: 10px 24px;
+    border: 2px solid #2E7D32;
+    background: transparent;
+    color: #2E7D32;
+    border-radius: 30px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.filters button:hover {
+    background-color: #2E7D32;
+    color: white;
+}
+
+/* Estado ativo do filtro — fundo verde sólido */
+.filters button.active {
+    background-color: #2E7D32;
+    color: white;
+}
+
+/* Lista vertical de cards de pedido */
+.ordersList {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Card individual de pedido — borda lateral verde como destaque */
+.orderCard {
+    background: white;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    border-left: 5px solid #2E7D32;
+}
+
+/* Cabeçalho do card com número do pedido e badge de status */
+.orderHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #eee;
+}
+
+.orderHeader h3 {
+    margin: 0;
+    color: #1e3a2f;
+    font-size: 1.25rem;
+}
+
+/* Badge de status com pill arredondado */
+.status {
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 0.95rem;
+    font-weight: 600;
+}
+
+/* Cores por status — aplicadas via classe dinâmica no JSX */
+.status.pendente   { background: #fff3cd; color: #856404; }
+.status.concluído  { background: #d4edda; color: #155724; }
+.status.cancelado  { background: #f8d7da; color: #721c24; }
+
+/* Lista dos itens do pedido com fundo levemente destacado */
+.orderItems {
+    margin: 15px 0;
+    padding: 12px;
+    background: #f8f9fa;
+    border-radius: 8px;
+    font-size: 1.05rem;
+    line-height: 1.6;
+}
+
+/* Tela vazia quando não há pedidos no filtro selecionado */
+.noOrders {
+    text-align: center;
+    padding: 60px 20px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+    font-size: 1.1rem;
+    color: #555;
+}
+
+/* Link para a página de pratos na tela vazia */
+.platesLink {
+    display: inline-block;
+    margin-top: 15px;
+    color: #2E7D32;
+    font-weight: 500;
+    text-decoration: underline;
+}
+
+/* Responsividade para telas menores */
+@media (max-width: 768px) {
+    .header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .filters {
+        width: 100%;
+    }
+    
+    .orderCard {
+        padding: 16px;
+    }
+}

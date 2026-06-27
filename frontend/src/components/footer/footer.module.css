@@ -1,0 +1,70 @@
+/* Container do rodapé e de listas de links — centralizados em coluna */
+.footerContainer, .linksContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #2E7D32;
+    color: white;
+}
+
+.footerContainer {
+    gap: 0.5em;
+    padding-bottom: 1em;
+}
+
+/* Logo com margem negativa para sobrepor levemente o conteúdo abaixo */
+.footerContainer img {
+    width: 7em;
+    margin-bottom: -2em;
+}
+
+/* Grade de botões sociais: 2 colunas no mobile, 4 no desktop */
+.socialButtonsContainer {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.2em;
+}
+
+.socialButton {
+    font-size: large;
+    width: 100%;
+    /* Corrigido: era <button> sem href — agora é <a>, os estilos continuam os mesmos */
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: white;
+    text-decoration: none;
+    padding: 6px 8px;
+}
+
+/* Créditos do desenvolvedor */
+.autoria {
+    display: flex;
+    flex-direction: column;
+    align-content: left;
+    font-size: large;
+}
+
+/* Link para o GitHub do desenvolvedor */
+.link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+    text-decoration: underline;
+}
+
+/* Desktop: 4 colunas para os botões sociais */
+@media screen and (min-width: 1000px) {
+    .socialButtonsContainer {
+        grid-template-columns: repeat(4, 2fr);
+    }
+}
+
+/* Mobile: logo um pouco menor */
+@media screen and (max-width: 600px) {
+    .footerContainer img {
+        width: 6em;
+    }
+}

@@ -1,0 +1,171 @@
+/* Container principal do painel admin — sidebar à direita via row-reverse */
+.adminContainer {
+    display: flex;
+    min-height: 100vh;
+    background-color: #f8f9fa;
+    flex-direction: row-reverse;
+}
+
+/* ==================== SIDEBAR DESKTOP (Direita) ==================== */
+
+.sidebar {
+    width: 260px;
+    background-color: #2E7D32;
+    color: white;
+    padding: 20px 0;
+    display: flex;
+    flex-direction: column;
+    box-shadow: -4px 0 15px rgba(0,0,0,0.1); /* Sombra à esquerda (sidebar está à direita) */
+}
+
+/* Cabeçalho da sidebar com nome do admin */
+.sidebarHeader {
+    padding: 0 20px 25px 20px;
+    border-bottom: 1px solid #3e8f5f;
+    margin-bottom: 20px;
+}
+
+.sidebarHeader h2 {
+    margin: 0;
+    font-size: 1.6rem;
+    color: #a3d9b4;
+}
+
+.sidebarHeader p {
+    margin: 5px 0 0 0;
+    opacity: 0.85;
+    font-size: 0.95rem;
+}
+
+/* Navegação em coluna */
+.nav {
+    display: flex;
+    flex-direction: column;
+    padding: 0 10px;
+}
+
+/* Links de navegação da sidebar */
+.navLink {
+    padding: 14px 20px;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    margin: 4px 10px;
+    transition: all 0.2s;
+    font-size: 1.02rem;
+}
+
+.navLink:hover,
+.navLink.active {
+    background-color: #1e5c24;
+    color: #a3d9b4;
+}
+
+/* Botão de logout — empurrado para o fundo da sidebar com margin-top: auto */
+.logoutBtn {
+    margin-top: auto;
+    margin: 20px 15px;
+    padding: 12px;
+    background-color: #c62828;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.logoutBtn:hover {
+    background-color: #b71c1c;
+}
+
+/* ==================== CONTEÚDO PRINCIPAL ==================== */
+
+/* Ocupa o restante da largura ao lado da sidebar */
+.mainContent {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+/* Barra superior do conteúdo com título e boas-vindas */
+.header {
+    background: white;
+    padding: 15px 25px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    z-index: 10;
+}
+
+.header h1 {
+    font-size: 1.6rem;
+    margin: 0;
+    color: #2E7D32;
+    flex: 1; /* Ocupa o espaço disponível, empurrando o botão para a direita */
+}
+
+/* Botão hambúrguer — oculto no desktop, visível no mobile */
+.menuButton {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 1.8rem;
+    cursor: pointer;
+    color: #2E7D32;
+    padding: 5px;
+}
+
+/* ==================== DRAWER MOBILE ==================== */
+
+/* Conteúdo do drawer lateral mobile */
+.drawerContent {
+    width: 260px;
+    padding: 20px 0;
+    background-color: #2E7D32;
+    color: white;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    font-size: large;
+}
+
+.drawerContent .navLink {
+    color: white;
+    padding: 16px 20px;
+}
+
+/* Logout no drawer também empurrado para o fundo */
+.drawerContent .logoutBtn {
+    margin-top: auto;
+    margin: 20px 15px;
+}
+
+/* ==================== RESPONSIVIDADE ==================== */
+
+@media (max-width: 900px) {
+    /* Esconde a sidebar no mobile — substituída pelo drawer */
+    .sidebar {
+        display: none;
+    }
+
+    /* Exibe o botão hambúrguer no mobile */
+    .menuButton {
+        display: block;
+    }
+
+    .header {
+        padding: 15px 20px;
+    }
+
+    .pageContent {
+        padding: 20px 15px;
+    }
+}
+
+/* Ajuste do grid de cards do dashboard em telas menores */
+.statsGrid {
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 15px;
+}
