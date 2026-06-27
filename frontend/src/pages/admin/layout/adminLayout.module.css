@@ -15,10 +15,9 @@
     padding: 20px 0;
     display: flex;
     flex-direction: column;
-    box-shadow: -4px 0 15px rgba(0,0,0,0.1); /* Sombra à esquerda (sidebar está à direita) */
+    box-shadow: -4px 0 15px rgba(0,0,0,0.1);
 }
 
-/* Cabeçalho da sidebar com nome do admin */
 .sidebarHeader {
     padding: 0 20px 25px 20px;
     border-bottom: 1px solid #3e8f5f;
@@ -37,14 +36,12 @@
     font-size: 0.95rem;
 }
 
-/* Navegação em coluna */
 .nav {
     display: flex;
     flex-direction: column;
     padding: 0 10px;
 }
 
-/* Links de navegação da sidebar */
 .navLink {
     padding: 14px 20px;
     color: white;
@@ -61,7 +58,6 @@
     color: #a3d9b4;
 }
 
-/* Botão de logout — empurrado para o fundo da sidebar com margin-top: auto */
 .logoutBtn {
     margin-top: auto;
     margin: 20px 15px;
@@ -80,7 +76,6 @@
 
 /* ==================== CONTEÚDO PRINCIPAL ==================== */
 
-/* Ocupa o restante da largura ao lado da sidebar */
 .mainContent {
     flex: 1;
     display: flex;
@@ -88,7 +83,6 @@
     width: 100%;
 }
 
-/* Barra superior do conteúdo com título e boas-vindas */
 .header {
     background: white;
     padding: 15px 25px;
@@ -103,23 +97,23 @@
     font-size: 1.6rem;
     margin: 0;
     color: #2E7D32;
-    flex: 1; /* Ocupa o espaço disponível, empurrando o botão para a direita */
+    flex: 1;
 }
 
-/* Botão hambúrguer — oculto no desktop, visível no mobile */
+/* Botão hambúrguer — forçado como none no desktop para vencer o estilo global de button */
 .menuButton {
-    display: none;
+    display: none !important;
     background: none;
     border: none;
     font-size: 1.8rem;
     cursor: pointer;
     color: #2E7D32;
     padding: 5px;
+    width: auto;
 }
 
 /* ==================== DRAWER MOBILE ==================== */
 
-/* Conteúdo do drawer lateral mobile */
 .drawerContent {
     width: 260px;
     padding: 20px 0;
@@ -136,7 +130,6 @@
     padding: 16px 20px;
 }
 
-/* Logout no drawer também empurrado para o fundo */
 .drawerContent .logoutBtn {
     margin-top: auto;
     margin: 20px 15px;
@@ -144,15 +137,23 @@
 
 /* ==================== RESPONSIVIDADE ==================== */
 
-@media (max-width: 600px) {
-    /* Esconde a sidebar no mobile — substituída pelo drawer */
+@media (max-width: 900px) {
     .sidebar {
         display: none;
     }
 
-    /* Exibe o botão hambúrguer no mobile */
+    /* Sobrescreve o display: none !important apenas no mobile */
     .menuButton {
-        display: block;
+        display: flex !important;
+        align-items: center;
+        justify-content: center;
+        background: none;
+        border: none;
+        font-size: 1.8rem;
+        cursor: pointer;
+        color: #2E7D32;
+        padding: 5px;
+        width: auto;
     }
 
     .header {
@@ -164,7 +165,6 @@
     }
 }
 
-/* Ajuste do grid de cards do dashboard em telas menores */
 .statsGrid {
     grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
     gap: 15px;
