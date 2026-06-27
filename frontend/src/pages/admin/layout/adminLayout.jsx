@@ -43,7 +43,7 @@ export default function AdminLayout() {
             <div className={styles.mainContent}>
                 <header className={styles.header}>
                     <h1>Painel Administrativo</h1>
-                    <p>Bem-vindo, {adminData.fullname}</p>
+                    <span className={styles.welcomeText}>Bem-vindo, {adminData.fullname}</span>
                     {/* Botão hambúrguer — visível apenas no mobile */}
                     <button 
                         className={styles.menuButton}
