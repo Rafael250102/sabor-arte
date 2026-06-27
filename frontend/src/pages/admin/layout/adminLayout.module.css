@@ -144,7 +144,7 @@
 
 /* ==================== RESPONSIVIDADE ==================== */
 
-@media (max-width: 900px) {
+@media (max-width: 600px) {
     /* Esconde a sidebar no mobile — substituída pelo drawer */
     .sidebar {
         display: none;
