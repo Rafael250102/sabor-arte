@@ -12,7 +12,8 @@ config()
  
 async function main() {
     const hostname = 'localhost'
-    const port = 3000
+    const PORT = process.env.PORT || 3000
+    const hostname = '0.0.0.0'   // Importante para Render
  
     const app = express()
  
@@ -44,8 +45,8 @@ async function main() {
     app.use('/plates', platesRouter) // Gerenciamento de pratos
     app.use('/orders', ordersRouter) // Gerenciamento de pedidos
  
-    app.listen(port, () => {
-        console.log(`Server running on: http://${hostname}:${port}`)
+    app.listen(PORT, hostname, () => {
+        console.log(`Server running on: http://${hostname}:${PORT}`)
     })
 }
  
