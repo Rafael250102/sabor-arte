@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import styles from './AdminButton.module.css';
+import styles from './adminButton.module.css';
 
 // Botão flutuante fixo no canto inferior direito para acessar o painel admin
 // Visível para qualquer visitante — considere esconder se o usuário não for admin
