@@ -11,7 +11,6 @@ import ordersRouter from './routes/orders.js'
 config()
  
 async function main() {
-    const hostname = 'localhost'
     const PORT = process.env.PORT || 3000
     const hostname = '0.0.0.0'   // Importante para Render
  
