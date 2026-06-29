@@ -80,7 +80,6 @@
     display: flex;
     flex-direction: column;
     width: 100%;
-    overflow: hidden;
 }
 
 .header {
@@ -100,26 +99,22 @@
     flex: 1;
 }
 
+/* Texto de boas-vindas — span em vez de p para não herdar display:flex */
 .welcomeText {
     color: #555;
     font-size: 1rem;
     white-space: nowrap;
 }
 
-/* Hambúrguer como <div> — sem conflito com estilo global de button */
+/* Hambúrguer — agora não conflita com o index.css graças ao data-hamburger */
 .menuButton {
     display: none;
+    background: none;
+    border: none;
     font-size: 1.8rem;
     cursor: pointer;
     color: #2E7D32;
-    padding: 5px 8px;
-    border-radius: 6px;
-    line-height: 1;
-    user-select: none;
-}
-
-.menuButton:hover {
-    background-color: #f0f0f0;
+    padding: 5px;
 }
 
 /* ==================== DRAWER MOBILE ==================== */
@@ -152,11 +147,8 @@
         display: none;
     }
 
-    /* <div> não tem conflito com o index.css — display: flex funciona normalmente */
     .menuButton {
-        display: flex;
-        align-items: center;
-        justify-content: center;
+        display: block;
     }
 
     .header {

@@ -7,7 +7,6 @@ import useOrderServices from "../../services/order";
 import { Link, useNavigate } from 'react-router-dom';
 import ConfirmDeleteModal from '../../components/modals/confirmDeleteModal';
 
-// URL base da API — usa variável de ambiente se disponível, senão cai no localhost
 const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3000'
 
 export default function Cart() {
@@ -15,25 +14,20 @@ export default function Cart() {
     const { sendOrder } = useOrderServices();
     const navigate = useNavigate();
 
-    // Lê os dados do usuário autenticado do localStorage
     const authData = JSON.parse(localStorage.getItem('auth') || "{}");
 
-    // Estados dos modais de confirmação
     const [confirmPopupOpen, setConfirmPopupOpen] = useState(false);
     const [removeModalOpen, setRemoveModalOpen] = useState(false);
     const [itemToRemove, setItemToRemove] = useState(null);
 
-    // Abre o popup de confirmação do pedido
     const handleOpenPopup = (e) => {
         e.preventDefault();
         setConfirmPopupOpen(true);
     };
 
-    // Monta e envia o pedido completo ao backend
     const handleConfirmOrder = async (orderData) => {
         try {
             const fullOrderData = {
-                // Suporta tanto o formato { user: { _id } } quanto { _id } do localStorage
                 userId: authData?.user?._id || authData?._id,
                 pickupTime: orderData.pickupTime,
                 paymentMethod: orderData.paymentMethod,
@@ -45,10 +39,9 @@ export default function Cart() {
 
             const result = await sendOrder(fullOrderData);
 
-            // Aceita diferentes formatos de resposta de sucesso da API
             if (result?.success || result?.insertedCount > 0 || result?.acknowledged) {
                 setConfirmPopupOpen(false);
-                clearCart(); // Esvazia o carrinho após o pedido ser confirmado
+                clearCart();
                 navigate('/profile', { replace: true });
             } else {
                 alert("Erro ao salvar o pedido.");
@@ -59,13 +52,11 @@ export default function Cart() {
         }
     };
 
-    // Abre o modal de confirmação antes de remover um item do carrinho
     const handleOpenRemoveModal = (item) => {
         setItemToRemove(item);
         setRemoveModalOpen(true);
     };
 
-    // Confirma a remoção do item selecionado e fecha o modal
     const handleConfirmRemove = () => {
         if (itemToRemove) {
             removeFromCart(itemToRemove._id);
@@ -74,7 +65,6 @@ export default function Cart() {
         setItemToRemove(null);
     };
 
-    // Exibe tela vazia se o carrinho não tiver itens
     if (!cartItems || cartItems.length === 0) {
         return (
             <div className={styles.cartEmpty}>
@@ -93,56 +83,50 @@ export default function Cart() {
             <div className={styles.pageContainer}>
                 <h1>Seus itens:</h1>
                 
-                <section>
-                    <div className={styles.itemsListContainer}>
-                        {cartItems.map((item) => {
-                            // Monta URL completa da imagem (mesmo padrão do PlateCard)
-                            // Corrigido: era hardcoded como localhost:3000
-                            const imageUrl = item.imgUrl 
-                                ? (item.imgUrl.startsWith('http') 
-                                    ? item.imgUrl 
-                                    : `${API_URL}${item.imgUrl}`)
-                                : null;
+                <div className={styles.itemsListContainer}>
+                    {cartItems.map((item) => {
+                        const imageUrl = item.imgUrl 
+                            ? (item.imgUrl.startsWith('http') 
+                                ? item.imgUrl 
+                                : `${API_URL}${item.imgUrl}`)
+                            : null;
 
-                            return (
-                                <div className={styles.itemContainer} key={item._id}>
-                                    {imageUrl ? (
-                                        <img src={imageUrl} alt={item.name} />
-                                    ) : (
-                                        <div className={styles.placeholderImage}></div>
-                                    )}
+                        return (
+                            <div className={styles.itemContainer} key={item._id}>
+                                {imageUrl ? (
+                                    <img src={imageUrl} alt={item.name} />
+                                ) : (
+                                    <div className={styles.placeholderImage}>🍽️</div>
+                                )}
+                                
+                                <div className={styles.itemContent}>
+                                    <h2>{item.name}</h2>
+                                    {/* Corrigido: span em vez de p para evitar display:flex do index.css */}
+                                    <span>{item.description}</span>
                                     
-                                    <div className={styles.itemContent}>
-                                        <h2>{item.name}</h2>
-                                        <p>{item.description}</p>
-                                        
-                                        <div className={styles.priceInfo}>
-                                            <p><strong>Preço unitário:</strong> R$ {item.price?.toFixed(2) || '0.00'}</p>
-                                            <p><strong>Subtotal:</strong> R$ {(item.price * item.quantity)?.toFixed(2) || '0.00'}</p>
-                                        </div>
-
-                                        {/* Controles de quantidade do item */}
-                                        <div className={styles.portionContainer}>
-                                            <p>Porções:</p>
-                                            <p>{item.quantity}</p>
-                                            <div className={styles.portionBtns}>
-                                                <button onClick={() => updateQuantity(item._id, item.quantity - 1)}>-</button>
-                                                <button onClick={() => updateQuantity(item._id, item.quantity + 1)}>+</button>
-                                            </div>
-                                        </div>
-                                        
-                                        {/* Abre modal de confirmação antes de remover */}
-                                        <button className={styles.removeBtn} onClick={() => handleOpenRemoveModal(item)}>
-                                            <LuBadgeMinus/> Remover do Carrinho
-                                        </button>
+                                    <div className={styles.priceInfo}>
+                                        <span><strong>Preço unitário:</strong> R$ {item.price?.toFixed(2) || '0.00'}</span>
+                                        <span><strong>Subtotal:</strong> R$ {(item.price * item.quantity)?.toFixed(2) || '0.00'}</span>
                                     </div>
-                                </div>
-                            );
-                        })}
-                    </div>
-                </section>
 
-                {/* Total calculado somando preço × quantidade de cada item */}
+                                    <div className={styles.portionContainer}>
+                                        <span>Porções:</span>
+                                        <span>{item.quantity}</span>
+                                        <div className={styles.portionBtns}>
+                                            <button onClick={() => updateQuantity(item._id, item.quantity - 1)}>-</button>
+                                            <button onClick={() => updateQuantity(item._id, item.quantity + 1)}>+</button>
+                                        </div>
+                                    </div>
+                                    
+                                    <button className={styles.removeBtn} onClick={() => handleOpenRemoveModal(item)}>
+                                        <LuBadgeMinus/> Remover do Carrinho
+                                    </button>
+                                </div>
+                            </div>
+                        );
+                    })}
+                </div>
+
                 <div className={styles.totalContainer}>
                     <h3>Total do Pedido: R$ {cartItems.reduce((total, item) => total + (item.price * item.quantity), 0).toFixed(2)}</h3>
                 </div>
@@ -152,14 +136,12 @@ export default function Cart() {
                 </button>
             </div>
 
-            {/* Popup de confirmação com horário e forma de pagamento */}
             <ConfirmOrderPopup 
                 open={confirmPopupOpen} 
                 onClose={() => setConfirmPopupOpen(false)} 
                 onConfirm={handleConfirmOrder}
             />
 
-            {/* Modal de confirmação de remoção de item */}
             <ConfirmDeleteModal 
                 open={removeModalOpen}
                 onClose={() => {

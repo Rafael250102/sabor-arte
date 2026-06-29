@@ -10,7 +10,6 @@
     gap: 2rem;
 }
 
-/* Link interno do botão de carrinho vazio — herda cor do botão pai */
 .cartEmptyBtn {
     background-color: #2E7D32;
     color: white;
@@ -27,94 +26,171 @@
     transform: translateY(-3px);
 }
 
-/* Card de item do carrinho — imagem à esquerda, conteúdo à direita */
-.itemContainer {
-    display: grid;
-    grid-template-columns: auto auto;
-    gap: 1em;
-}
-
-/* Imagem do prato no carrinho — tamanho fixo com proporção preservada */
-.itemContainer img {
-    width: 200px;
-    height: 100%;
-    border-radius: 1em;
-    object-fit: cover;
-}
-
-/* Lista vertical de itens do carrinho */
-.itemsListContainer {
-    display: flex;
-    flex-direction: column;
-    gap: 1em;
-}
-
-/* Container principal da página do carrinho */
+/* Container principal da página */
 .pageContainer {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 2em;
-    padding-bottom: 100px; /* espaço para botão fixo */
+    gap: 1.5em;
+    padding: 1.5em 1em 120px 1em;
+    width: 100%;
+    max-width: 760px;
+    margin: 0 auto;
 }
 
-/* Conteúdo textual e controles de cada item */
-.itemContent {
+/* Lista vertical de itens */
+.itemsListContainer {
     display: flex;
     flex-direction: column;
-    gap: 0.5em;
+    gap: 1em;
     width: 100%;
 }
 
-/* Linha com label e controles de quantidade */
+/* Card de item — imagem à esquerda, conteúdo à direita */
+.itemContainer {
+    display: grid;
+    grid-template-columns: 160px 1fr;
+    gap: 0;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+    overflow: hidden;
+    width: 100%;
+}
+
+.itemContainer img {
+    width: 160px;
+    height: 100%;
+    min-height: 150px;
+    object-fit: cover;
+}
+
+/* Placeholder quando não há imagem */
+.placeholderImage {
+    width: 160px;
+    min-height: 150px;
+    background-color: #e8f5e9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #2E7D32;
+    font-size: 2rem;
+}
+
+/* Conteúdo textual de cada item */
+.itemContent {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4em;
+    padding: 0.8em;
+    width: 100%;
+}
+
+.itemContent h2 {
+    font-size: 1rem;
+    color: #1e3a2f;
+    margin: 0;
+}
+
+/* Sobrescreve display:flex do index.css para descrição */
+.itemContent > p {
+    font-size: 0.85rem;
+    color: #666;
+    display: block !important;
+    margin: 0;
+    line-height: 1.4;
+}
+
+/* Preços */
+.priceInfo {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.priceInfo p {
+    font-size: 0.9rem;
+    display: block !important;
+    margin: 0;
+    line-height: 1.4;
+}
+
+/* Controles de quantidade */
 .portionContainer {
     display: flex;
     align-items: center;
-    gap: 0.5em;
+    gap: 0.4em;
+    flex-wrap: wrap;
 }
 
-/* Botões de incremento/decremento de quantidade */
+/* Sobrescreve display:flex do index.css nos <p> de quantidade */
+.portionContainer > p {
+    display: block !important;
+    margin: 0;
+}
+
 .portionBtns {
     display: flex;
     gap: 0.2em;
 }
 
-/* Botão de confirmar pedido — fixo na parte inferior da tela */
+/* Total do pedido */
+.totalContainer {
+    width: 100%;
+    text-align: right;
+    padding: 1em;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+}
+
+/* Botão fixo de confirmar pedido */
 .confirmBtn {
     position: fixed;
-    font-size: x-large;
-    bottom: 2em;
+    bottom: 1.5em;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 1rem;
     background-color: #25662a;
+    padding: 14px 32px;
+    border-radius: 30px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    z-index: 100;
+    white-space: nowrap;
 }
 
 /* ==================== RESPONSIVIDADE ==================== */
-@media screen and (max-width: 768px) {
-    .cartEmpty {
-        min-height: 65vh;
-        padding: 1.5rem 1rem;
-        gap: 1.5rem;
+@media screen and (max-width: 600px) {
+    .pageContainer {
+        padding: 1em 0.8em 100px 0.8em;
+        gap: 1em;
     }
 
+    /* No mobile, imagem em cima e conteúdo embaixo */
     .itemContainer {
         grid-template-columns: 1fr;
-        text-align: center;
-        gap: 1rem;
     }
 
     .itemContainer img {
         width: 100%;
-        height: 180px;
+        height: 160px;
+        min-height: unset;
     }
 
-    .pageContainer {
-        padding-bottom: 90px;
+    .placeholderImage {
+        width: 100%;
+        height: 120px;
+        min-height: unset;
+    }
+
+    .itemContent {
+        padding: 0.8em;
+        text-align: left;
     }
 
     .confirmBtn {
-        bottom: 1.5em;
-        left: 50%;
-        transform: translateX(-50%);
         width: 90%;
-        max-width: 380px;
+        max-width: 360px;
+        font-size: 0.95rem;
     }
 }
