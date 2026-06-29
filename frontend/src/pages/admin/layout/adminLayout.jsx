@@ -39,16 +39,16 @@ export default function AdminLayout() {
             <div className={styles.mainContent}>
                 <header className={styles.header}>
                     <h1>Painel Administrativo</h1>
+                    {/* Corrigido: <span> em vez de <p> para evitar display:flex do index.css */}
                     <span className={styles.welcomeText}>Bem-vindo, {adminData.fullname}</span>
-                    {/* Corrigido: <div> no lugar de <button> para evitar conflito com estilo global */}
-                    <div
+                    {/* data-hamburger permite seletor no index.css sem depender do nome da classe */}
+                    <button
+                        data-hamburger="true"
                         className={styles.menuButton}
                         onClick={() => setDrawerOpen(true)}
-                        role="button"
-                        aria-label="Abrir menu"
                     >
                         ☰
-                    </div>
+                    </button>
                 </header>
 
                 <div className={styles.pageContent}>
@@ -57,11 +57,7 @@ export default function AdminLayout() {
             </div>
 
             {/* ===== Drawer Mobile ===== */}
-            <Drawer
-                anchor="right"
-                open={drawerOpen}
-                onClose={() => setDrawerOpen(false)}
-            >
+            <Drawer anchor="right" open={drawerOpen} onClose={() => setDrawerOpen(false)}>
                 <div className={styles.drawerContent}>
                     <Link to="/admin/dashboard" className={styles.navLink} onClick={() => setDrawerOpen(false)}>📊 Dashboard</Link>
                     <Link to="/admin/plates"    className={styles.navLink} onClick={() => setDrawerOpen(false)}>🍽️ Gerenciar Pratos</Link>
