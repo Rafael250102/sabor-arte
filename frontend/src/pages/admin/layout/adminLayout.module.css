@@ -100,24 +100,26 @@
     flex: 1;
 }
 
-/* Substituído o <p> por <span> para evitar herdar display:flex do index.css */
 .welcomeText {
     color: #555;
     font-size: 1rem;
     white-space: nowrap;
 }
 
-/* Botão hambúrguer — oculto no desktop */
+/* Hambúrguer como <div> — sem conflito com estilo global de button */
 .menuButton {
     display: none;
-    background: none !important;
-    border: none;
     font-size: 1.8rem;
     cursor: pointer;
-    color: #2E7D32 !important;
-    padding: 5px;
-    width: auto !important;
-    box-shadow: none !important;
+    color: #2E7D32;
+    padding: 5px 8px;
+    border-radius: 6px;
+    line-height: 1;
+    user-select: none;
+}
+
+.menuButton:hover {
+    background-color: #f0f0f0;
 }
 
 /* ==================== DRAWER MOBILE ==================== */
@@ -150,9 +152,11 @@
         display: none;
     }
 
-    /* Exibe o botão hambúrguer no mobile */
+    /* <div> não tem conflito com o index.css — display: flex funciona normalmente */
     .menuButton {
-        display: block;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 
     .header {
