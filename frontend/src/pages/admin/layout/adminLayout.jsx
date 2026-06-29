@@ -1,6 +1,7 @@
 import { Outlet, useNavigate, Link } from "react-router-dom";
 import { useState } from "react";
 import { Drawer } from '@mui/material';
+import { LuMenu } from "react-icons/lu"; // Mesmo ícone da navbar do cliente
 import styles from './adminLayout.module.css';
 
 export default function AdminLayout() {
@@ -39,16 +40,12 @@ export default function AdminLayout() {
             <div className={styles.mainContent}>
                 <header className={styles.header}>
                     <h1>Painel Administrativo</h1>
-                    {/* Corrigido: <span> em vez de <p> para evitar display:flex do index.css */}
                     <span className={styles.welcomeText}>Bem-vindo, {adminData.fullname}</span>
-                    {/* data-hamburger permite seletor no index.css sem depender do nome da classe */}
-                    <button
-                        data-hamburger="true"
-                        className={styles.menuButton}
+                    {/* Ícone SVG — sem conflito com o estilo global de button do index.css */}
+                    <LuMenu
+                        className={styles.menuIcon}
                         onClick={() => setDrawerOpen(true)}
-                    >
-                        ☰
-                    </button>
+                    />
                 </header>
 
                 <div className={styles.pageContent}>
